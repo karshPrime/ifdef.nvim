@@ -24,7 +24,11 @@ function Actions.current()
         end
     end
 
-    print(table.concat(labels, " { "))
+    if #labels > 0 then
+        print(table.concat(labels, " { ") .. " {", line_num)
+    else
+        print("None ifdefs surrounding",  line_num)
+    end
 end
 
 function Actions.comment_end()
